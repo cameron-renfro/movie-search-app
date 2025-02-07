@@ -5,6 +5,8 @@ import DetailCard from '@/components/ui/DetailCard/DetailCard';
 const Page = async ({ params }: { params: { search: string } }) => {
   const { shows, people, movies } = await GET_SEARCH_RESULTS(params.search);
 
+  console.log('🧍 Person', people);
+
   return (
     <main className="w-screen flex flex-col justify-center items-center">
       <div className="min-h-screen w-fit grid grid-cols-1 sm:w-4/6 sm:max-w-full justify-stretch my-16">
@@ -60,7 +62,7 @@ const Page = async ({ params }: { params: { search: string } }) => {
                   key={person.id}
                   name={person.name}
                   image={person.profile_path}
-                  href={`/people/${person.id}`}
+                  href={`/person/${person.id}`}
                   popularity={person.popularity}
                 />
               ))}

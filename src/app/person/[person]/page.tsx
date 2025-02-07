@@ -1,10 +1,11 @@
 import GET_PERSON_DETAILS from './data';
 
 const Page = async ({ params }: { params: { person: string } }) => {
-  const { results } = await GET_PERSON_DETAILS(params.person);
+  const person = await GET_PERSON_DETAILS(params.person);
+  console.log('📊 Results', person);
   return (
     <div>
-      <p>Hello People!</p>
+      <p>You have found the page for {person.name}</p>
     </div>
   );
 };
